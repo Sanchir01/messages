@@ -13,3 +13,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Addressing {
+  id                   Int    @id @default(autoincrement())
+  addressing           String
+  status               Status @default(Новое)
+  cancellation_message String
+  solving_problem      String
+}
+
+enum Status {
+  Новое
+  В_работе
+  Завершено
+  Отменено
+}
