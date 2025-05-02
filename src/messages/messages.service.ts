@@ -26,7 +26,7 @@ export class MessagesService {
 
 				return tx.addressing.create({
 					data: {
-						starting_message: createMessageDto.text,
+						starting_message: createMessageDto.starting_message,
 						themeId: createMessageDto.themeId
 					}
 				})

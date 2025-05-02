@@ -61,7 +61,7 @@ describe('Messages Controller', () => {
 		if (!theme) {
 			throw new Error('Theme not found')
 		}
-		const props = { themeId: theme.id, text }
+		const props = { themeId: theme.id, starting_message: text }
 		const result = await controller.create(props)
 		expect(result).toEqual(newMessage)
 	})
