@@ -1,5 +1,5 @@
 export const MESSAGES_CONTROLLER = 'messages' as const
-
+export const THEME_CONTROLLER = 'theme' as const
 export const API_ROUTES = {
 	GETALL: '',
 	CREATE_MESSAGE: '',
@@ -8,3 +8,7 @@ export const API_ROUTES = {
 	COMPLETED_MESSAGE: 'completed/:uuid',
 	END_ALL_MESSAGES_TO_WORK: 'close-all-work'
 } as const
+
+export const API_ROUTES_THEME = {
+	CREATE_THEME: ''
+}

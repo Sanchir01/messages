@@ -4,11 +4,6 @@ export class GetMessagesDto {
 	@IsOptional()
 	@IsDate()
 	@Transform(({ value }) => new Date(value))
-	date?: Date
-
-	@IsOptional()
-	@IsDate()
-	@Transform(({ value }) => new Date(value))
 	startDate?: Date
 
 	@IsOptional()
