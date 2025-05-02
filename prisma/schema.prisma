@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -15,11 +15,25 @@ datasource db {
 }
 
 model Addressing {
-  id                   Int    @id @default(autoincrement())
-  addressing           String
-  status               Status @default(Новое)
-  cancellation_message String
-  solving_problem      String
+  id                   String  @id @default(uuid())
+  starting_message     String
+  status               Status  @default(Новое)
+  cancellation_message String?
+  solving_message      String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  theme     Theme    @relation(fields: [themeId], references: [id])
+
+  themeId String @map("theme_id")
+}
+
+model Theme {
+  id         String       @id @default(uuid())
+  title      String       @unique
+  createdAt  DateTime     @default(now()) @map("created_at")
+  updatedAt  DateTime     @updatedAt @map("updated_at")
+  Addressing Addressing[]
 }
 
 enum Status {
