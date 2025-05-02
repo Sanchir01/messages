@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common'
 import { ThemeService } from './theme.service'
 import { CreateThemeDto } from './dto/create-theme.dto'
-import { API_ROUTES_THEME, THEME_CONTROLLER } from 'src/constants/routes'
+import { API_ROUTES_THEME, THEME_CONTROLLER } from '../constants/routes'
 
 @Controller(THEME_CONTROLLER)
 export class ThemeController {
